@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ナレッジセンター | 最新技術トレンド＆チーム情報</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .knowledge-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .knowledge-header {
+            text-align: center;
+            margin-bottom: 50px;
+            color: white;
+        }
+
+        .knowledge-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .article {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            background: linear-gradient(90deg, rgba(102,126,234,0.05) 0%, transparent 100%);
+            border-radius: 0 10px 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .article:hover {
+            background: linear-gradient(90deg, rgba(102,126,234,0.1) 0%, transparent 100%);
+            transform: translateX(5px);
+        }
+
+        .article-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .article-date {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .article-content {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .tag {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 5px 5px 0 0;
+            font-weight: 500;
+        }
+
+        .article-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 16px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(102,126,234,0.3);
+        }
+
+        .article-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102,126,234,0.4);
+            color: white;
+        }
+
+        .article-link::after {
+            content: " →";
+            margin-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            opacity: 0.8;
+        }
+
+        /* Featured Article Styles */
+        .featured-articles-section {
+            margin-bottom: 50px;
+        }
+        
+        .featured-section-title {
+            color: white;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .featured-article-frame {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 3px solid #667eea;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .featured-content {
+            margin-top: 1rem;
+        }
+
+        .featured-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .featured-description {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .featured-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 1rem;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .featured-date,
+        .featured-author {
+            font-weight: 500;
+        }
+
+        .featured-tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .featured-tags .tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .featured-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .featured-actions .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .featured-actions .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+        }
+
+        .featured-actions .btn-secondary {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .featured-actions .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        @media (max-width: 768px) {
+            .featured-title {
+                font-size: 1.5rem;
+            }
+            
+            .featured-article-frame {
+                padding: 1.5rem;
+            }
+            
+            .featured-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .featured-actions .btn {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>DX Solutions</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">ホーム</a></li>
+                <li><a href="services.html" class="nav-link">サービス</a></li>
+                <li><a href="industries.html" class="nav-link">業界別ソリューション</a></li>
+                <li><a href="cases.html" class="nav-link">事例</a></li>
+                <li class="nav-category">
+                    <span class="category-title">学習・情報 <span class="category-arrow">▼</span></span>
+                    <ul class="category-items">
+                        <li><a href="knowledge-center.html" class="nav-link active">ナレッジセンター</a></li>
+                        <li><a href="trends.html" class="nav-link">業界トレンド</a></li>
+                        <li><a href="training.html" class="nav-link">研修・認定</a></li>
+                        <li><a href="resources.html" class="nav-link">リソース</a></li>
+                        <li><a href="news.html" class="nav-link">ニュース・ブログ</a></li>
+                    </ul>
+                </li>
+                <li><a href="tools.html" class="nav-link">便利ツール</a></li>
+                <li class="nav-category">
+                    <span class="category-title">企業情報 <span class="category-arrow">▼</span></span>
+                    <ul class="category-items">
+                        <li><a href="about.html" class="nav-link">会社情報</a></li>
+                        <li><a href="partners.html" class="nav-link">パートナー</a></li>
+                        <li><a href="careers.html" class="nav-link">採用情報</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html" class="nav-link">お問い合わせ</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="knowledge-container">
+        <header class="knowledge-header">
+            <h1 class="knowledge-title">ナレッジセンター</h1>
+            <p class="subtitle">最新技術トレンド & チーム開発情報</p>
+        </header>
+
+        <!-- Featured Article Section -->
+        <div class="featured-articles-section">
+            <h2 class="section-title featured-section-title">🎆 独自記事</h2>
+            
+            <!-- AI & Smart Factory Article -->
+            <div class="featured-article-frame">
+                <div class="featured-badge">独自記事</div>
+                <div class="featured-content">
+                    <h3 class="featured-title">製造業におけるAI活用の最新動向とスマートファクトリー実現のためのIoT導入戦略</h3>
+                    <p class="featured-description">経済産業省のロードマップに基づく段階的なスマートファクトリー化の進め方から、具体的な成功事例まで、製造業のDX推進に必要な全てを解説します。</p>
+                    <div class="featured-meta">
+                        <span class="featured-date">2025年7月17日</span>
+                        <span class="featured-author">DXソリューション編集部</span>
+                    </div>
+                    <div class="featured-tags">
+                        <span class="tag">AI</span>
+                        <span class="tag">IoT</span>
+                        <span class="tag">スマートファクトリー</span>
+                        <span class="tag">製造業DX</span>
+                    </div>
+                    <div class="featured-actions">
+                        <a href="article-smart-factory-iot-strategy.html" class="btn btn-primary">記事を読む</a>
+                        <a href="article-ai-manufacturing-trends.html" class="btn btn-secondary">AI活用動向も見る</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2025 DX Trends Article -->
+            <div class="featured-article-frame">
+                <div class="featured-badge">独自記事</div>
+                <div class="featured-content">
+                    <h3 class="featured-title">2025年製造業DX最新トレンドと実装戦略</h3>
+                    <p class="featured-description">生成AIやハイパーオートメーションなど、2025年に注目すべき最新デジタル技術と、製造業での実装方法を詳しく解説します。</p>
+                    <div class="featured-meta">
+                        <span class="featured-date">2025年7月16日</span>
+                        <span class="featured-author">DXソリューション編集部</span>
+                    </div>
+                    <div class="featured-tags">
+                        <span class="tag">DXトレンド</span>
+                        <span class="tag">生成AI</span>
+                        <span class="tag">ハイパーオートメーション</span>
+                    </div>
+                    <div class="featured-actions">
+                        <a href="article-dx-trends-2025.html" class="btn btn-primary">記事を読む</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edge Computing Article -->
+            <div class="featured-article-frame">
+                <div class="featured-badge">独自記事</div>
+                <div class="featured-content">
+                    <h3 class="featured-title">エッジコンピューティングで変わる製造業の未来</h3>
+                    <p class="featured-description">リアルタイムデータ処理と低遅延通信を実現するエッジコンピューティングの製造業への応用と具体的な導入メリットを解説します。</p>
+                    <div class="featured-meta">
+                        <span class="featured-date">2025年7月15日</span>
+                        <span class="featured-author">DXソリューション編集部</span>
+                    </div>
+                    <div class="featured-tags">
+                        <span class="tag">エッジコンピューティング</span>
+                        <span class="tag">リアルタイム処理</span>
+                        <span class="tag">IoT</span>
+                    </div>
+                    <div class="featured-actions">
+                        <a href="article-edge-computing.html" class="btn btn-primary">記事を読む</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Automotive DX Case Study -->
+            <div class="featured-article-frame">
+                <div class="featured-badge">独自記事</div>
+                <div class="featured-content">
+                    <h3 class="featured-title">自動車部品メーカーのDX成功事例分析</h3>
+                    <p class="featured-description">大手自動車部品メーカーのデジタル変革成功事例を詳細分析。具体的な取り組み内容と成果、学びをまとめました。</p>
+                    <div class="featured-meta">
+                        <span class="featured-date">2025年7月14日</span>
+                        <span class="featured-author">DXソリューション編集部</span>
+                    </div>
+                    <div class="featured-tags">
+                        <span class="tag">事例研究</span>
+                        <span class="tag">自動車業界</span>
+                        <span class="tag">DX成功事例</span>
+                    </div>
+                    <div class="featured-actions">
+                        <a href="article-automotive-dx-case.html" class="btn btn-primary">記事を読む</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Best Practices Article -->
+            <div class="featured-article-frame">
+                <div class="featured-badge">独自記事</div>
+                <div class="featured-content">
+                    <h3 class="featured-title">製造データ活用ベストプラクティス</h3>
+                    <p class="featured-description">製造業でのデータ活用を成功に導くための実践的な手法とベストプラクティスを、具体例とともに詳しく解説します。</p>
+                    <div class="featured-meta">
+                        <span class="featured-date">2025年7月13日</span>
+                        <span class="featured-author">DXソリューション編集部</span>
+                    </div>
+                    <div class="featured-tags">
+                        <span class="tag">データ活用</span>
+                        <span class="tag">ベストプラクティス</span>
+                        <span class="tag">実践ガイド</span>
+                    </div>
+                    <div class="featured-actions">
+                        <a href="article-data-best-practices.html" class="btn btn-primary">記事を読む</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5G Manufacturing Article -->
+            <div class="featured-article-frame">
+                <div class="featured-badge">独自記事</div>
+                <div class="featured-content">
+                    <h3 class="featured-title">5G技術が担う製造業のスマート化</h3>
+                    <p class="featured-description">高速・低遅延・多数同時接続を実現する5G技術が、製造業のスマート化にもたらす革新的な影響を解説します。</p>
+                    <div class="featured-meta">
+                        <span class="featured-date">2025年7月12日</span>
+                        <span class="featured-author">DXソリューション編集部</span>
+                    </div>
+                    <div class="featured-tags">
+                        <span class="tag">5G</span>
+                        <span class="tag">スマートファクトリー</span>
+                        <span class="tag">無線技術</span>
+                    </div>
+                    <div class="featured-actions">
+                        <a href="article-5g-manufacturing.html" class="btn btn-primary">記事を読む</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sustainability DX Article -->
+            <div class="featured-article-frame">
+                <div class="featured-badge">独自記事</div>
+                <div class="featured-content">
+                    <h3 class="featured-title">サステナビリティDX：環境配慮型製造業への転換</h3>
+                    <p class="featured-description">環境負荷低減と経済性を両立するサステナブルな製造業へのデジタル変革戦略と、具体的な実装手法を紹介します。</p>
+                    <div class="featured-meta">
+                        <span class="featured-date">2025年7月11日</span>
+                        <span class="featured-author">DXソリューション編集部</span>
+                    </div>
+                    <div class="featured-tags">
+                        <span class="tag">サステナビリティ</span>
+                        <span class="tag">環境配慮</span>
+                        <span class="tag">グリーンDX</span>
+                    </div>
+                    <div class="featured-actions">
+                        <a href="article-sustainability-dx.html" class="btn btn-primary">記事を読む</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="section">
+                <h2 class="section-title">🚀 業界最新ニュース</h2>
+                
+                <article class="article">
+                    <h3 class="article-title">エージェント型AI（Agentic AI）が2025年の主流技術に</h3>
+                    <p class="article-date">2025年7月17日</p>
+                    <p class="article-content">AIが自律的に意思決定し行動できるエージェント型AIが注目を集めています。従来のAIが人間の指示を必要とするツールであったのに対し、この技術は目標達成のために独自に計画を立て、実行する能力を持っています。企業での導入事例が増加しており、業務効率化の新たなステージに入っています。</p>
+                    <span class="tag">AI</span><span class="tag">自動化</span>
+                    <a href="https://www.brainpad.co.jp/doors/contents/ai_agent_trend/" class="article-link" target="_blank">詳細を見る</a>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">AGI（汎用人工知能）実現への道筋が明確化</h3>
+                    <p class="article-date">2025年7月16日</p>
+                    <p class="article-content">生成AIの進化形として、2025年中にAGI（Artificial General Intelligence）の実現可能性が高まっています。人間レベルの知能を持つAIシステムの開発が進み、あらゆる認知タスクを人間と同等以上に実行できる技術の登場が期待されています。</p>
+                    <span class="tag">AGI</span><span class="tag">次世代AI</span>
+                    <a href="https://www.mind.co.jp/column/052.html" class="article-link" target="_blank">詳細を見る</a>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">2025年の崖：レガシーシステム問題が深刻化</h3>
+                    <p class="article-date">2025年7月15日</p>
+                    <p class="article-content">経済産業省が警鐘を鳴らした「2025年の崖」問題が現実化しています。レガシーシステムの維持限界により、年間約12兆円の経済損失が予測されており、企業のDX推進が急務となっています。システム現代化への投資が企業競争力を左右する時代に突入しました。</p>
+                    <span class="tag">DX</span><span class="tag">レガシーシステム</span>
+                    <a href="https://www.ipa.go.jp/digital/chousa/dx-trend/dx-trend-2024.html" class="article-link" target="_blank">詳細を見る</a>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">ハイパーオートメーションが業務プロセスを革新</h3>
+                    <p class="article-date">2025年7月14日</p>
+                    <p class="article-content">AI・RPA・機械学習を組み合わせたハイパーオートメーションが、複雑な業務を完全に自動化する技術として急速に普及しています。単なる業務効率化を超え、ビジネスプロセス全体を最適化し、迅速な意思決定をサポートする革新的なソリューションとして注目されています。</p>
+                    <span class="tag">自動化</span><span class="tag">RPA</span>
+                    <a href="https://hblab.co.jp/blog/top-10-it-trends-in-2025/" class="article-link" target="_blank">詳細を見る</a>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">自動運転技術が地域交通問題の解決策に</h3>
+                    <p class="article-date">2025年7月13日</p>
+                    <p class="article-content">政府の「デジタル田園都市国家構想総合戦略」において、2025年度に50か所、2027年度までに100か所以上で地域限定の無人自動運転サービス展開が目標として掲げられました。人口減少や高齢化が進む地域での公共交通維持の切り札として期待が高まっています。</p>
+                    <span class="tag">自動運転</span><span class="tag">地域創生</span>
+                    <a href="https://www.octoparse.jp/blog/top-10-technology-trends-for-2023-you-must-know-about" class="article-link" target="_blank">詳細を見る</a>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">シャープのAIスマートリンクが新時代のウェアラブルを提示</h3>
+                    <p class="article-date">2025年7月12日</p>
+                    <p class="article-content">シャープが京都芸術大学と共同開発した「AIスマートリンク」は、首にかけて使用するウェアラブルデバイスとして革新的な機能を搭載。内蔵マイクやカメラで周囲環境を認識し、生成AIとの自然なコミュニケーションを実現します。次世代インターフェースの可能性を示す画期的な製品です。</p>
+                    <span class="tag">ウェアラブル</span><span class="tag">IoT</span>
+                    <a href="https://corp.linkers.net/blog/openwithlinkers/10671/" class="article-link" target="_blank">詳細を見る</a>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">デジタルツインがAI・メタバースと融合進化</h3>
+                    <p class="article-date">2025年7月11日</p>
+                    <p class="article-content">2025年以降、デジタルツイン技術はAIやメタバースとの掛け合わせでさらなる進化を遂げると予測されています。物理世界の完全なデジタル複製から、予測分析や最適化まで、産業界における活用範囲が大幅に拡大しています。</p>
+                    <span class="tag">デジタルツイン</span><span class="tag">メタバース</span>
+                    <a href="https://www.mind.co.jp/column/052.html" class="article-link" target="_blank">詳細を見る</a>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">AI市場が2025年に38％成長の予測</h3>
+                    <p class="article-date">2025年7月10日</p>
+                    <p class="article-content">Exploding Topicsの調査によると、AI市場は2025年に38％の成長が見込まれています。CompTIAの調査では、現在55％の企業がAIを導入済みで、さらに45％が将来的な導入を検討中。AI技術の普及が加速度的に進んでいることが明らかになりました。</p>
+                    <span class="tag">市場分析</span><span class="tag">成長予測</span>
+                    <a href="https://www.sotatek.com/jp/blogs/ai-trends-2025/" class="article-link" target="_blank">詳細を見る</a>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">生成AIがコンテンツ制作業界を変革</h3>
+                    <p class="article-date">2025年7月9日</p>
+                    <p class="article-content">ChatGPTやStable Diffusionなどの生成AIツールが、テキスト・画像・音声を自動生成する技術として急速に普及しています。クリエイティブ業界では制作プロセスが大幅に効率化され、新たなコンテンツ制作手法として定着しつつあります。</p>
+                    <span class="tag">生成AI</span><span class="tag">クリエイティブ</span>
+                    <a href="https://relipasoft.com/blog/top-10-it-technology-trends-for-2025/" class="article-link" target="_blank">詳細を見る</a>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">量子コンピューティングが実用化段階に</h3>
+                    <p class="article-date">2025年7月8日</p>
+                    <p class="article-content">量子技術の発展により、従来のコンピューターでは解決困難な複雑な計算問題への対応が可能になっています。金融、製薬、物流などの分野で実用的なアプリケーションの開発が進み、産業界での活用が本格化しています。</p>
+                    <span class="tag">量子技術</span><span class="tag">先端技術</span>
+                    <a href="https://corp.linkers.net/blog/openwithlinkers/10671/" class="article-link" target="_blank">詳細を見る</a>
+                </article>
+
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">🤝 チーム開発情報</h2>
+                
+                <article class="article">
+                    <h3 class="article-title">リモートアジャイル開発の新常識：2025年版ベストプラクティス</h3>
+                    <p class="article-date">2025年7月17日</p>
+                    <p class="article-content">リモートワーク環境でのアジャイル開発において、過剰なコミュニケーションは存在しないという原則が確立されました。ビデオカメラ常時オンによるオンライン座席の概念や、緊密なフィードバックループの維持が成功の鍵となっています。チーム文化の継続がリモート環境での最重要課題です。</p>
+                    <span class="tag">アジャイル</span><span class="tag">リモートワーク</span>
+                    <a href="https://atmarkit.itmedia.co.jp/ait/articles/2105/21/news002.html" class="article-link" target="_blank">詳細を見る</a>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">アジャイルチーム立ち上げ時の重要ポイント</h3>
+                    <p class="article-date">2025年7月15日</p>
+                    <p class="article-content">アジャイル開発の失敗を防ぐため、立ち上げ時に最も重要なのはチーム構成です。意欲に満ちた人々を集めてプロジェクトを構成し、アジャイル開発そのものを目的化せず、価値創出に焦点を当てることが成功の秘訣です。やらされアジャイルからの脱却が急務となっています。</p>
+                    <span class="tag">チームビルディング</span><span class="tag">プロジェクト管理</span>
+                    <a href="https://www.intellilink.co.jp/column/agile-devops/2023/012600.aspx" class="article-link" target="_blank">詳細を見る</a>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">2025年版リモートコラボレーションツール15選</h3>
+                    <p class="article-date">2025年7月13日</p>
+                    <p class="article-content">リモートチームの成功には、仮想の共有チームスペースが不可欠です。コラボレーションツールと望ましい行動を対応付けて共通のツールセットを構築し、コミュニティ感覚を醸成することで、チームのつながりと信頼を維持できます。効果的なツール選択がチーム生産性を左右します。</p>
+                    <span class="tag">コラボレーション</span><span class="tag">ツール選択</span>
+                    <a href="https://clickup.com/blog/remote-collaboration-tools/" class="article-link" target="_blank">詳細を見る</a>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">大規模アジャイル開発のアーキテクチャ最適化手法</h3>
+                    <p class="article-date">2025年7月11日</p>
+                    <p class="article-content">大規模アジャイル開発では、アーキテクチャの観点からチーム構成と開発プロセスを最適化することが重要です。マイクロサービス Architecture やチーム分割戦略により、複数チーム間の依存関係を最小化し、迅速な価値提供を実現できます。</p>
+                    <span class="tag">大規模開発</span><span class="tag">アーキテクチャ</span>
+                    <a href="https://www.intellilink.co.jp/column/agile-devops/2021/072800.aspx" class="article-link" target="_blank">詳細を見る</a>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">スクラム哲学をリモート環境で徹底する方法</h3>
+                    <p class="article-date">2025年7月9日</p>
+                    <p class="article-content">リモートワークだからこそ、スクラム哲学を徹底してチームで作業に取り組むことが大切です。透明性、検査、適応の3つの柱を軸に、リモート環境特有の課題を克服し、継続的な改善を実現する具体的な手法が確立されています。試行錯誤による課題改善が確実に進歩しています。</p>
+                    <span class="tag">スクラム</span><span class="tag">継続的改善</span>
+                    <a href="https://www.nttcom.co.jp/evangelist/column/iyama_1/" class="article-link" target="_blank">詳細を見る</a>
+                </article>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 ナレッジセンター. 最新技術情報をお届けします。</p>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

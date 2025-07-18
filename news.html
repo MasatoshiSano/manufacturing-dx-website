@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ニュース・ブログ - DX Solutions</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>DX Solutions</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">ホーム</a></li>
+                <li><a href="services.html" class="nav-link">サービス</a></li>
+                <li><a href="industries.html" class="nav-link">業界別ソリューション</a></li>
+                <li><a href="cases.html" class="nav-link">事例</a></li>
+                <li class="nav-category">
+                    <span class="category-title">学習・情報 <span class="category-arrow">▼</span></span>
+                    <ul class="category-items">
+                        <li><a href="knowledge.html" class="nav-link">ナレッジセンター</a></li>
+                        <li><a href="trends.html" class="nav-link">業界トレンド</a></li>
+                        <li><a href="training.html" class="nav-link">研修・認定</a></li>
+                        <li><a href="resources.html" class="nav-link">リソース</a></li>
+                        <li><a href="news.html" class="nav-link active">ニュース・ブログ</a></li>
+                    </ul>
+                </li>
+                <li><a href="tools.html" class="nav-link">便利ツール</a></li>
+                <li class="nav-category">
+                    <span class="category-title">企業情報 <span class="category-arrow">▼</span></span>
+                    <ul class="category-items">
+                        <li><a href="about.html" class="nav-link">会社情報</a></li>
+                        <li><a href="partners.html" class="nav-link">パートナー</a></li>
+                        <li><a href="careers.html" class="nav-link">採用情報</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html" class="nav-link">お問い合わせ</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>ニュース・ブログ</h1>
+                <p>製造業DXの最新情報、技術動向、実践的なノウハウをお届けします</p>
+            </div>
+        </section>
+
+        <section class="news-filters">
+            <div class="container">
+                <div class="filter-controls">
+                    <div class="category-filters">
+                        <h3>カテゴリー</h3>
+                        <div class="category-buttons">
+                            <button class="category-btn active" data-category="all">すべて</button>
+                            <button class="category-btn" data-category="news">ニュース</button>
+                            <button class="category-btn" data-category="tech">技術情報</button>
+                            <button class="category-btn" data-category="case">事例紹介</button>
+                            <button class="category-btn" data-category="industry">業界動向</button>
+                            <button class="category-btn" data-category="product">プロダクト</button>
+                            <button class="category-btn" data-category="event">イベント</button>
+                        </div>
+                    </div>
+                    <div class="search-filter">
+                        <input type="text" placeholder="記事を検索..." class="search-input">
+                        <button class="search-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="M21 21l-4.35-4.35"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-posts">
+            <div class="container">
+                <h2>注目記事</h2>
+                <div class="featured-grid">
+                    <article class="featured-post">
+                        <div class="post-image">
+                            <img src="" alt="製造業DXの最新トレンド2024">
+                            <div class="post-category">業界動向</div>
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-date">2024年12月15日</span>
+                                <span class="post-author">編集部</span>
+                            </div>
+                            <h3>製造業DXの最新トレンド2024：AIとIoTの融合が加速</h3>
+                            <p>2024年の製造業界では、AIとIoTの技術融合が急速に進んでいます。特に予防保全分野での活用が注目されており、設備故障の予測精度が大幅に向上しています。</p>
+                            <div class="post-tags">
+                                <span class="tag">AI</span>
+                                <span class="tag">IoT</span>
+                                <span class="tag">予防保全</span>
+                                <span class="tag">トレンド</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="featured-post">
+                        <div class="post-image">
+                            <img src="" alt="自動車業界のDX成功事例">
+                            <div class="post-category">事例紹介</div>
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-date">2024年12月10日</span>
+                                <span class="post-author">田中 太郎</span>
+                            </div>
+                            <h3>自動車業界のDX成功事例：品質検査の効率化で40%の時間短縮を実現</h3>
+                            <p>大手自動車メーカーでの品質検査システムの導入事例をご紹介。AI画像解析技術により、従来の検査時間を40%短縮し、検査精度も大幅に向上しました。</p>
+                            <div class="post-tags">
+                                <span class="tag">自動車</span>
+                                <span class="tag">品質検査</span>
+                                <span class="tag">AI画像解析</span>
+                                <span class="tag">成功事例</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="news-grid">
+            <div class="container">
+                <div class="news-layout">
+                    <div class="news-main">
+                        <div class="news-articles">
+                            <article class="news-article" data-category="tech">
+                                <div class="article-image">
+                                    <img src="" alt="クラウドベースの製造データ分析">
+                                    <div class="article-category">技術情報</div>
+                                </div>
+                                <div class="article-content">
+                                    <div class="article-meta">
+                                        <span class="article-date">2024年12月8日</span>
+                                        <span class="article-author">佐藤 花子</span>
+                                    </div>
+                                    <h3>クラウドベースの製造データ分析：リアルタイム監視の実現</h3>
+                                    <p>クラウド技術を活用した製造データ分析システムの構築方法について詳しく解説します。リアルタイム監視により、生産効率の向上と品質管理の強化を実現できます。</p>
+                                    <div class="article-tags">
+                                        <span class="tag">クラウド</span>
+                                        <span class="tag">データ分析</span>
+                                        <span class="tag">リアルタイム</span>
+                                    </div>
+                                    <div class="article-footer">
+                                        <div class="article-stats">
+                                            <span class="views">👁 1,234 views</span>
+                                            <span class="likes">❤️ 45 likes</span>
+                                        </div>
+                                        <a href="#" class="read-more">続きを読む</a>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="news-article" data-category="product">
+                                <div class="article-image">
+                                    <img src="" alt="新機能リリース">
+                                    <div class="article-category">プロダクト</div>
+                                </div>
+                                <div class="article-content">
+                                    <div class="article-meta">
+                                        <span class="article-date">2024年12月5日</span>
+                                        <span class="article-author">山田 次郎</span>
+                                    </div>
+                                    <h3>新機能リリース：AI予測分析機能を追加</h3>
+                                    <p>DX Solutions プラットフォームに新たにAI予測分析機能を追加しました。機械学習アルゴリズムにより、設備故障の予測精度が従来比で30%向上しています。</p>
+                                    <div class="article-tags">
+                                        <span class="tag">新機能</span>
+                                        <span class="tag">AI予測</span>
+                                        <span class="tag">機械学習</span>
+                                    </div>
+                                    <div class="article-footer">
+                                        <div class="article-stats">
+                                            <span class="views">👁 987 views</span>
+                                            <span class="likes">❤️ 32 likes</span>
+                                        </div>
+                                        <a href="#" class="read-more">続きを読む</a>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="news-article" data-category="event">
+                                <div class="article-image">
+                                    <img src="" alt="製造業DXセミナー">
+                                    <div class="article-category">イベント</div>
+                                </div>
+                                <div class="article-content">
+                                    <div class="article-meta">
+                                        <span class="article-date">2024年12月1日</span>
+                                        <span class="article-author">編集部</span>
+                                    </div>
+                                    <h3>製造業DXセミナー開催のお知らせ：2025年1月20日（月）</h3>
+                                    <p>製造業のデジタル変革をテーマにしたセミナーを開催します。業界のエキスパートが最新動向と実践的なノウハウを共有します。参加費無料、オンライン開催です。</p>
+                                    <div class="article-tags">
+                                        <span class="tag">セミナー</span>
+                                        <span class="tag">無料</span>
+                                        <span class="tag">オンライン</span>
+                                    </div>
+                                    <div class="article-footer">
+                                        <div class="article-stats">
+                                            <span class="views">👁 2,156 views</span>
+                                            <span class="likes">❤️ 78 likes</span>
+                                        </div>
+                                        <a href="#" class="read-more">続きを読む</a>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="news-article" data-category="industry">
+                                <div class="article-image">
+                                    <img src="" alt="半導体業界のDX動向">
+                                    <div class="article-category">業界動向</div>
+                                </div>
+                                <div class="article-content">
+                                    <div class="article-meta">
+                                        <span class="article-date">2024年11月28日</span>
+                                        <span class="article-author">鈴木 三郎</span>
+                                    </div>
+                                    <h3>半導体業界のDX動向：歩留まり向上への新たなアプローチ</h3>
+                                    <p>半導体製造における歩留まり向上は永続的な課題です。最新のAI技術とリアルタイム監視システムを組み合わせることで、従来にない精度での品質管理が可能になっています。</p>
+                                    <div class="article-tags">
+                                        <span class="tag">半導体</span>
+                                        <span class="tag">歩留まり</span>
+                                        <span class="tag">品質管理</span>
+                                    </div>
+                                    <div class="article-footer">
+                                        <div class="article-stats">
+                                            <span class="views">👁 1,567 views</span>
+                                            <span class="likes">❤️ 56 likes</span>
+                                        </div>
+                                        <a href="#" class="read-more">続きを読む</a>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="news-article" data-category="case">
+                                <div class="article-image">
+                                    <img src="" alt="食品業界のトレーサビリティ">
+                                    <div class="article-category">事例紹介</div>
+                                </div>
+                                <div class="article-content">
+                                    <div class="article-meta">
+                                        <span class="article-date">2024年11月25日</span>
+                                        <span class="article-author">高橋 美咲</span>
+                                    </div>
+                                    <h3>食品業界のトレーサビリティ強化：安全性向上と効率化の両立</h3>
+                                    <p>食品製造業でのトレーサビリティシステム導入事例をご紹介。品質管理の強化と業務効率化を同時に実現し、顧客満足度の向上に貢献しています。</p>
+                                    <div class="article-tags">
+                                        <span class="tag">食品</span>
+                                        <span class="tag">トレーサビリティ</span>
+                                        <span class="tag">品質管理</span>
+                                    </div>
+                                    <div class="article-footer">
+                                        <div class="article-stats">
+                                            <span class="views">👁 1,345 views</span>
+                                            <span class="likes">❤️ 42 likes</span>
+                                        </div>
+                                        <a href="#" class="read-more">続きを読む</a>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="news-article" data-category="news">
+                                <div class="article-image">
+                                    <img src="" alt="パートナーシップ締結">
+                                    <div class="article-category">ニュース</div>
+                                </div>
+                                <div class="article-content">
+                                    <div class="article-meta">
+                                        <span class="article-date">2024年11月20日</span>
+                                        <span class="article-author">編集部</span>
+                                    </div>
+                                    <h3>グローバルテクノロジー企業との戦略的パートナーシップ締結</h3>
+                                    <p>DX Solutionsは、グローバルテクノロジー企業との戦略的パートナーシップを締結しました。これにより、最新のAI技術とクラウドサービスを活用した革新的なソリューションを提供できるようになります。</p>
+                                    <div class="article-tags">
+                                        <span class="tag">パートナーシップ</span>
+                                        <span class="tag">戦略的提携</span>
+                                        <span class="tag">AI技術</span>
+                                    </div>
+                                    <div class="article-footer">
+                                        <div class="article-stats">
+                                            <span class="views">👁 3,245 views</span>
+                                            <span class="likes">❤️ 123 likes</span>
+                                        </div>
+                                        <a href="#" class="read-more">続きを読む</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="pagination">
+                            <button class="pagination-btn prev" disabled>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="15,18 9,12 15,6"/>
+                                </svg>
+                                前のページ
+                            </button>
+                            <div class="pagination-numbers">
+                                <button class="pagination-number active">1</button>
+                                <button class="pagination-number">2</button>
+                                <button class="pagination-number">3</button>
+                                <span class="pagination-dots">...</span>
+                                <button class="pagination-number">10</button>
+                            </div>
+                            <button class="pagination-btn next">
+                                次のページ
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="9,6 15,12 9,18"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="news-sidebar">
+                        <div class="sidebar-section">
+                            <h3>人気記事</h3>
+                            <div class="popular-posts">
+                                <article class="popular-post">
+                                    <div class="popular-image">
+                                        <img src="" alt="製造業DXの基本">
+                                    </div>
+                                    <div class="popular-content">
+                                        <h4>製造業DXの基本：始める前に知っておくべき5つのポイント</h4>
+                                        <div class="popular-meta">
+                                            <span class="popular-date">2024年11月15日</span>
+                                            <span class="popular-views">👁 5,678 views</span>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <article class="popular-post">
+                                    <div class="popular-image">
+                                        <img src="" alt="IoT導入ガイド">
+                                    </div>
+                                    <div class="popular-content">
+                                        <h4>IoT導入ガイド：成功する製造業のIoT戦略</h4>
+                                        <div class="popular-meta">
+                                            <span class="popular-date">2024年11月10日</span>
+                                            <span class="popular-views">👁 4,523 views</span>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <article class="popular-post">
+                                    <div class="popular-image">
+                                        <img src="" alt="AI品質検査">
+                                    </div>
+                                    <div class="popular-content">
+                                        <h4>AI品質検査システムの導入効果と実装のポイント</h4>
+                                        <div class="popular-meta">
+                                            <span class="popular-date">2024年11月5日</span>
+                                            <span class="popular-views">👁 3,987 views</span>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-section">
+                            <h3>タグクラウド</h3>
+                            <div class="tag-cloud">
+                                <span class="cloud-tag popular">AI</span>
+                                <span class="cloud-tag">IoT</span>
+                                <span class="cloud-tag popular">品質管理</span>
+                                <span class="cloud-tag">クラウド</span>
+                                <span class="cloud-tag">自動車</span>
+                                <span class="cloud-tag popular">予防保全</span>
+                                <span class="cloud-tag">半導体</span>
+                                <span class="cloud-tag">食品</span>
+                                <span class="cloud-tag">機械学習</span>
+                                <span class="cloud-tag">データ分析</span>
+                                <span class="cloud-tag">トレーサビリティ</span>
+                                <span class="cloud-tag">効率化</span>
+                                <span class="cloud-tag">セミナー</span>
+                                <span class="cloud-tag">成功事例</span>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-section">
+                            <h3>アーカイブ</h3>
+                            <div class="archive-list">
+                                <div class="archive-item">
+                                    <h4>2024年12月</h4>
+                                    <span class="archive-count">8記事</span>
+                                </div>
+                                <div class="archive-item">
+                                    <h4>2024年11月</h4>
+                                    <span class="archive-count">12記事</span>
+                                </div>
+                                <div class="archive-item">
+                                    <h4>2024年10月</h4>
+                                    <span class="archive-count">15記事</span>
+                                </div>
+                                <div class="archive-item">
+                                    <h4>2024年9月</h4>
+                                    <span class="archive-count">10記事</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-section">
+                            <h3>ニュースレター</h3>
+                            <div class="newsletter-signup">
+                                <p>最新のニュースとブログ記事をメールでお届けします。</p>
+                                <div class="newsletter-form">
+                                    <input type="email" placeholder="メールアドレス">
+                                    <button class="btn btn-primary">登録</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DX Solutions</h3>
+                    <p>社内の製造データ活用を支援する専門企業</p>
+                </div>
+                <div class="footer-section">
+                    <h4>サービス</h4>
+                    <ul>
+                        <li><a href="services.html">トレーサビリティ</a></li>
+                        <li><a href="services.html">品質・トラブル分析</a></li>
+                        <li><a href="services.html">メンテ・稼働分析</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>会社情報</h4>
+                    <ul>
+                        <li><a href="about.html">会社概要</a></li>
+                        <li><a href="cases.html">導入事例</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DX Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
