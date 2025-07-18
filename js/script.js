@@ -1,13 +1,14 @@
-// Free image sources - Using Picsum for placeholder images
-const FREE_IMAGE_BASE = 'https://picsum.photos';
+// Unsplash image sources - Using Unsplash for high-quality relevant images
+const UNSPLASH_ACCESS_KEY = '9KgayEIIlYbfPhObBlKbN4LXraua4itv8UnngU6o7P0';
+const UNSPLASH_BASE = 'https://images.unsplash.com';
 
-// Image loading function using free placeholder service
-function loadFreeImage(seed, elementId, width = 800, height = 600, alt = '') {
+// Image loading function using Unsplash
+function loadUnsplashImage(query, elementId, width = 800, height = 600, alt = '') {
     const element = document.getElementById(elementId);
     if (element) {
-        // Generate consistent images using seed parameter
-        element.src = `${FREE_IMAGE_BASE}/seed/${seed}/${width}/${height}`;
-        element.alt = alt || `Image ${seed}`;
+        // Use Unsplash Source API for optimized images
+        element.src = `${UNSPLASH_BASE}/${width}x${height}/?${query}`;
+        element.alt = alt || `Image ${query}`;
     }
 }
 
@@ -19,26 +20,26 @@ function initializeImages() {
     switch (filename) {
         case 'index.html':
         case '':
-            loadFreeImage('factory101', 'hero-img', 600, 400, '工場自動化');
+            loadUnsplashImage('factory,automation,manufacturing', 'hero-img', 600, 400, '工場自動化');
             break;
             
         case 'services.html':
-            loadFreeImage('iot201', 'iot-img', 400, 250, 'IoTセンサー');
-            loadFreeImage('ai202', 'ai-img', 400, 250, 'AI・機械学習');
-            loadFreeImage('cloud203', 'cloud-img', 400, 250, 'クラウド');
+            loadUnsplashImage('iot,sensors,technology', 'iot-img', 400, 250, 'IoTセンサー');
+            loadUnsplashImage('ai,artificial-intelligence,machine-learning', 'ai-img', 400, 250, 'AI・機械学習');
+            loadUnsplashImage('cloud,computing,server', 'cloud-img', 400, 250, 'クラウド');
             break;
             
         case 'cases.html':
-            loadFreeImage('auto301', 'case1-img', 400, 300, '自動車製造ライン');
-            loadFreeImage('food302', 'case2-img', 400, 300, '食品品質管理');
-            loadFreeImage('electronics303', 'case3-img', 400, 300, '電子機器製造');
+            loadUnsplashImage('automotive,manufacturing,assembly-line', 'case1-img', 400, 300, '自動車製造ライン');
+            loadUnsplashImage('food,quality,control,inspection', 'case2-img', 400, 300, '食品品質管理');
+            loadUnsplashImage('electronics,manufacturing,circuit-board', 'case3-img', 400, 300, '電子機器製造');
             break;
             
         case 'about.html':
-            loadFreeImage('office401', 'about-img', 500, 300, 'オフィス会議');
-            loadFreeImage('ceo402', 'ceo-img', 120, 120, 'CEO');
-            loadFreeImage('cto403', 'cto-img', 120, 120, 'CTO');
-            loadFreeImage('coo404', 'coo-img', 120, 120, 'COO');
+            loadUnsplashImage('office,meeting,business,team', 'about-img', 500, 300, 'オフィス会議');
+            loadUnsplashImage('business,executive,professional', 'ceo-img', 120, 120, 'CEO');
+            loadUnsplashImage('technology,leader,professional', 'cto-img', 120, 120, 'CTO');
+            loadUnsplashImage('operations,manager,professional', 'coo-img', 120, 120, 'COO');
             break;
             
         case 'tools.html':
@@ -46,15 +47,15 @@ function initializeImages() {
             break;
             
         case 'knowledge.html':
-            loadFreeImage('ai501', 'featured-1', 600, 250, 'AI活用最新動向');
-            loadFreeImage('smart502', 'featured-2', 600, 250, 'スマートファクトリー');
-            loadFreeImage('dx2025', 'article-new', 400, 200, '2025年製造業DX最新トレンド');
-            loadFreeImage('edge503', 'article-1', 400, 200, 'エッジコンピューティング');
-            loadFreeImage('trends504', 'article-2', 400, 200, '2024年DXトレンド');
-            loadFreeImage('auto505', 'article-3', 400, 200, '自動車部品DX事例');
-            loadFreeImage('data506', 'article-4', 400, 200, 'データ活用ベストプラクティス');
-            loadFreeImage('5g507', 'article-5', 400, 200, '5G技術製造業');
-            loadFreeImage('sustain508', 'article-6', 400, 200, 'サステナビリティDX');
+            loadUnsplashImage('ai,artificial-intelligence,technology', 'featured-1', 600, 250, 'AI活用最新動向');
+            loadUnsplashImage('smart,factory,automation,industry', 'featured-2', 600, 250, 'スマートファクトリー');
+            loadUnsplashImage('digital,transformation,manufacturing', 'article-new', 400, 200, '2025年製造業DX最新トレンド');
+            loadUnsplashImage('edge,computing,network,technology', 'article-1', 400, 200, 'エッジコンピューティング');
+            loadUnsplashImage('digital,trends,technology,innovation', 'article-2', 400, 200, '2024年DXトレンド');
+            loadUnsplashImage('automotive,parts,manufacturing', 'article-3', 400, 200, '自動車部品DX事例');
+            loadUnsplashImage('data,analytics,dashboard,charts', 'article-4', 400, 200, 'データ活用ベストプラクティス');
+            loadUnsplashImage('5g,network,technology,wireless', 'article-5', 400, 200, '5G技術製造業');
+            loadUnsplashImage('sustainability,green,environment,manufacturing', 'article-6', 400, 200, 'サステナビリティDX');
             break;
             
         case 'resources.html':
@@ -62,27 +63,39 @@ function initializeImages() {
             break;
             
         case 'article-edge-computing.html':
-            loadFreeImage('edge-tech', 'article-hero', 800, 400, 'エッジコンピューティング技術');
+            loadUnsplashImage('edge,computing,network,servers,data-center', 'article-hero', 800, 400, 'エッジコンピューティング技術');
             break;
             
         case 'article-dx-trends-2024.html':
-            loadFreeImage('dx-trends', 'article-hero', 800, 400, '2024年DXトレンド');
+            loadUnsplashImage('digital,transformation,technology,innovation', 'article-hero', 800, 400, '2024年DXトレンド');
             break;
             
         case 'article-automotive-dx-case.html':
-            loadFreeImage('auto-case', 'article-hero', 800, 400, '自動車部品DX事例');
+            loadUnsplashImage('automotive,car,manufacturing,assembly', 'article-hero', 800, 400, '自動車部品DX事例');
             break;
             
         case 'article-data-best-practices.html':
-            loadFreeImage('data-analytics', 'article-hero', 800, 400, 'データ活用ベストプラクティス');
+            loadUnsplashImage('data,analytics,dashboard,visualization', 'article-hero', 800, 400, 'データ活用ベストプラクティス');
             break;
             
         case 'article-5g-manufacturing.html':
-            loadFreeImage('5g-tech', 'article-hero', 800, 400, '5G製造業技術');
+            loadUnsplashImage('5g,network,wireless,technology,antenna', 'article-hero', 800, 400, '5G製造業技術');
             break;
             
         case 'article-sustainability-dx.html':
-            loadFreeImage('sustainability', 'article-hero', 800, 400, 'サステナビリティDX');
+            loadUnsplashImage('sustainability,green,environment,renewable-energy', 'article-hero', 800, 400, 'サステナビリティDX');
+            break;
+            
+        case 'article-dx-trends-2025.html':
+            loadUnsplashImage('digital,transformation,2025,future,technology', 'article-hero', 800, 400, '2025年製造業DX最新トレンド');
+            break;
+            
+        case 'article-ai-manufacturing-trends.html':
+            loadUnsplashImage('ai,artificial-intelligence,manufacturing,robotics', 'article-hero', 800, 400, 'AI製造業トレンド');
+            break;
+            
+        case 'article-smart-factory-iot-strategy.html':
+            loadUnsplashImage('smart,factory,iot,sensors,automation', 'article-hero', 800, 400, 'スマートファクトリーIoT戦略');
             break;
     }
 }
