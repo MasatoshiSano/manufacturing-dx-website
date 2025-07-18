@@ -6,9 +6,39 @@ const UNSPLASH_BASE = 'https://images.unsplash.com';
 function loadUnsplashImage(query, elementId, width = 800, height = 600, alt = '') {
     const element = document.getElementById(elementId);
     if (element) {
-        // Use Unsplash Source API for optimized images
-        element.src = `${UNSPLASH_BASE}/${width}x${height}/?${query}`;
+        // Map specific element IDs to appropriate Unsplash photo IDs
+        const imageMap = {
+            'hero-img': 'photo-1565793298595-6a879b1d9492', // factory automation
+            'case1-img': 'photo-1581091226825-a6a2a5aee158', // automotive manufacturing
+            'case2-img': 'photo-1571019613454-1cb2f99b2d8b', // food quality control
+            'case3-img': 'photo-1581092160562-40aa08e78837', // electronics manufacturing
+            'iot-img': 'photo-1558618047-3c8c76ca7d13', // IoT sensors
+            'ai-img': 'photo-1677442136019-21780ecad995', // AI technology
+            'cloud-img': 'photo-1451187580459-43490279c0fa', // cloud computing
+            'about-img': 'photo-1556761175-5973dc0f32e7', // office meeting
+            'ceo-img': 'photo-1507003211169-0a1dd7228f2d', // business executive
+            'cto-img': 'photo-1472099645785-5658abf4ff4e', // technology leader
+            'coo-img': 'photo-1519085360753-af0119f7cbe7', // operations manager
+            'featured-1': 'photo-1677442136019-21780ecad995', // AI technology
+            'featured-2': 'photo-1565793298595-6a879b1d9492', // smart factory
+            'article-new': 'photo-1581091226825-a6a2a5aee158', // digital transformation
+            'article-1': 'photo-1558618047-3c8c76ca7d13', // edge computing
+            'article-2': 'photo-1581091226825-a6a2a5aee158', // DX trends
+            'article-3': 'photo-1581091226825-a6a2a5aee158', // automotive DX
+            'article-4': 'photo-1551288049-bebda4e38f71', // data analytics
+            'article-5': 'photo-1558618047-3c8c76ca7d13', // 5G technology
+            'article-6': 'photo-1565793298595-6a879b1d9492', // sustainability
+            'article-hero': 'photo-1565793298595-6a879b1d9492' // default hero
+        };
+        
+        const photoId = imageMap[elementId] || 'photo-1565793298595-6a879b1d9492';
+        element.src = `https://images.unsplash.com/${photoId}?w=${width}&h=${height}&fit=crop&crop=center&auto=format&q=80`;
         element.alt = alt || `Image ${query}`;
+        
+        // Add error handling for failed image loads
+        element.onerror = function() {
+            this.src = `https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=${width}&h=${height}&fit=crop&crop=center&auto=format&q=80`;
+        };
     }
 }
 
